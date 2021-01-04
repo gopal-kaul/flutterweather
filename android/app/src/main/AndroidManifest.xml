@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.weatherapp">
+    package="com.gopalkaul.weatherapp">
    <application
         android:label="weatherapp"
         android:icon="@mipmap/ic_launcher">
