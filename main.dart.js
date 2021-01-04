@@ -53575,14 +53575,14 @@ while(true)switch(s){case 0:s=2
 return P.ah(q.n3(a),$async$om)
 case 2:return P.a4(null,r)}})
 return P.a5($async$om,r)},
-Z5:function(a){var s=this,r="white",q="./images/clear.jpg"
+Z5:function(a){var s=this,r="white",q="assets/images/clear.jpg"
 if(a===0){if(s.ch!=="white")s.iJ(r)
 return q}else if(a>=200&&a<300){if(s.ch!=="white")s.iJ(r)
-return"./images/thunder.jpg"}else if(a>=300&&a<400){if(s.ch!=="white")s.iJ(r)
-return"./images/drizzle.jpg"}else if(a>=500&&a<600){if(s.ch!=="white")s.iJ(r)
-return"./images/rain.jpg"}else if(a>=600&&a<700){if(s.ch!=="black")s.iJ("black")
-return"./images/snow.jpg"}else if(a>=800&&a<900){if(s.ch!=="white")s.iJ(r)
-return"./images/cloudy.jpg"}else{if(s.ch!=="white")s.iJ(r)
+return"assets/images/thunder.jpg"}else if(a>=300&&a<400){if(s.ch!=="white")s.iJ(r)
+return"assets/images/drizzle.jpg"}else if(a>=500&&a<600){if(s.ch!=="white")s.iJ(r)
+return"assets/images/rain.jpg"}else if(a>=600&&a<700){if(s.ch!=="black")s.iJ("black")
+return"/assetsimages/snow.jpg"}else if(a>=800&&a<900){if(s.ch!=="white")s.iJ(r)
+return"assets/images/cloudy.jpg"}else{if(s.ch!=="white")s.iJ(r)
 return q}},
 iJ:function(a){this.aK(new F.XG(this,a))}}
 F.XE.prototype={
@@ -53590,7 +53590,7 @@ $0:function(){var s=this,r=s.b
 r.r=s.c
 r.d=s.a.a
 r.e=s.d
-r.Q=C.b.M("http://openweathermap.org/img/wn/",J.c_(s.e))+"@4x.png"
+r.Q=C.b.M("https://openweathermap.org/img/wn/",J.c_(s.e))+"@4x.png"
 r.f=s.f
 r.cx=""},
 $S:2}
