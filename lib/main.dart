@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 void main() {
   runApp(MyApp());
@@ -10,9 +13,27 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  @override
   int temperature = 0;
+  int woeid = 0;
+  int weather;
   String location = 'Hyderabad';
+  String apisite = 'https://api.openweathermap.org/data/2.5/weather?q=';
+  String apikey = '&appid=5a8737d953ee376f648468efa28a0b4d';
+  void fetchweather(String loc) async {
+    var resp = await http.get(apisite + loc + apikey);
+    var t = jsonDecode(resp.body);
+    var data = t['main']['temp'];
+    var temp = data - 273.16;
+    var weatherdata = t['weather'][0]['id'];
+    temp = temp.round();
+    setState(() {
+      location = loc;
+      temperature = temp;
+      weather = weatherdata;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -44,9 +65,12 @@ class _MyAppState extends State<MyApp> {
                 Column(
                   children: <Widget>[
                     Container(
-                      width: 300.0,
+                      width: 400.0,
                       child: Center(
                         child: TextField(
+                          onSubmitted: (String input) {
+                            submitted(input);
+                          },
                           style: TextStyle(fontSize: 30.0, color: Colors.white),
                           decoration: InputDecoration(
                               hintText: "City, Country",
@@ -65,5 +89,9 @@ class _MyAppState extends State<MyApp> {
             ),
           ),
         ));
+  }
+
+  void submitted(String input) {
+    fetchweather(input);
   }
 }
