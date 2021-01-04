@@ -18,7 +18,7 @@ class _MyAppState extends State<MyApp> {
   String location = 'Delhi';
   String apisite = 'https://api.openweathermap.org/data/2.5/weather?q=';
   String apikey = '&appid=5a8737d953ee376f648468efa28a0b4d';
-  String iconsite = 'http://openweathermap.org/img/wn/';
+  String iconsite = 'https://openweathermap.org/img/wn/';
   String iconloc = '';
   String colour = 'white';
   String errormsg = '';
