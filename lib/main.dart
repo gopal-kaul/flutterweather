@@ -148,25 +148,25 @@ class _MyAppState extends State<MyApp> {
   String weatherlink(int weatherid) {
     if (weatherid == 0) {
       if (colour != 'white') setcolour('white');
-      return "./images/clear.jpg";
+      return "assets/images/clear.jpg";
     } else if (weatherid >= 200 && weatherid < 300) {
       if (colour != 'white') setcolour('white');
-      return "./images/thunder.jpg";
+      return "assets/images/thunder.jpg";
     } else if (weatherid >= 300 && weatherid < 400) {
       if (colour != 'white') setcolour('white');
-      return "./images/drizzle.jpg";
+      return "assets/images/drizzle.jpg";
     } else if (weatherid >= 500 && weatherid < 600) {
       if (colour != 'white') setcolour('white');
-      return "./images/rain.jpg";
+      return "assets/images/rain.jpg";
     } else if (weatherid >= 600 && weatherid < 700) {
       if (colour != 'black') setcolour('black');
-      return "./images/snow.jpg";
+      return "/assetsimages/snow.jpg";
     } else if (weatherid >= 800 && weatherid < 900) {
       if (colour != 'white') setcolour('white');
-      return "./images/cloudy.jpg";
+      return "assets/images/cloudy.jpg";
     } else {
       if (colour != 'white') setcolour('white');
-      return './images/clear.jpg';
+      return 'assets/images/clear.jpg';
     }
   }
 
