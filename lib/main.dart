@@ -46,7 +46,7 @@ class _MyAppState extends State<MyApp> {
       var weatherdesc = t['weather'][0]['description'];
       temp = temp.round();
       setState(() {
-        location = loc;
+        location = capitalize(loc);
         temperature = temp;
         weather = weatherdata;
         desc = weatherdesc;
@@ -155,7 +155,13 @@ class _MyAppState extends State<MyApp> {
     } else if (weatherid >= 600 && weatherid < 700) {
       if (colour != 'black') setcolour('black');
       return "assets/images/snow.jpg";
-    } else if (weatherid >= 800 && weatherid < 900) {
+    } else if (weatherid >= 700 && weatherid < 800) {
+      if (colour != 'white') setcolour('white');
+      return "assets/images/cloudy.jpg";
+    } else if (weatherid == 800) {
+      if (colour != 'white') setcolour('white');
+      return 'assets/images/clear.jpg';
+    } else if (weatherid >= 801 && weatherid < 900) {
       if (colour != 'white') setcolour('white');
       return "assets/images/cloudy.jpg";
     } else {
@@ -202,7 +208,16 @@ class _MyAppState extends State<MyApp> {
         size: 100,
         color: colour == 'white' ? Colors.white : Colors.black,
       );
-    else if (weatherid >= 800 && weatherid < 900)
+    else if (weatherid >= 700 && weatherid < 800)
+      return BoxedIcon(WeatherIcons.cloud,
+          size: 100, color: colour == 'white' ? Colors.white : Colors.black);
+    else if (weatherid == 800)
+      return BoxedIcon(
+        WeatherIcons.day_sunny,
+        size: 100,
+        color: colour == 'white' ? Colors.white : Colors.black,
+      );
+    else if (weatherid > 800 && weatherid < 900)
       return BoxedIcon(WeatherIcons.cloudy,
           size: 100, color: colour == 'white' ? Colors.white : Colors.black);
     else
