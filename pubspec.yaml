@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   http:
+  weather_icons:
   cupertino_icons: ^1.0.1
 
 dev_dependencies:

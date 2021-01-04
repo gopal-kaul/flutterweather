@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:weather_icons/weather_icons.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,7 +20,7 @@ class _MyAppState extends State<MyApp> {
   String apisite = 'https://api.openweathermap.org/data/2.5/weather?q=';
   String apikey = '&appid=5a8737d953ee376f648468efa28a0b4d';
   String iconsite = 'https://openweathermap.org/img/wn/';
-  String iconloc = '';
+
   String colour = 'white';
   String errormsg = '';
 
@@ -42,14 +43,12 @@ class _MyAppState extends State<MyApp> {
       var data = t['main']['temp'];
       var temp = data - 273.16;
       var weatherdata = t['weather'][0]['id'];
-      var icon = t['weather'][0]['icon'];
       var weatherdesc = t['weather'][0]['description'];
       temp = temp.round();
       setState(() {
         location = loc;
         temperature = temp;
         weather = weatherdata;
-        iconloc = iconsite + icon.toString() + '@4x.png';
         desc = weatherdesc;
         errormsg = '';
       });
@@ -78,12 +77,7 @@ class _MyAppState extends State<MyApp> {
                     children: <Widget>[
                       Column(
                         children: [
-                          if (iconloc != '')
-                            Center(
-                              child: Image(
-                                image: NetworkImage(iconloc),
-                              ),
-                            ),
+                          if (weather != 0) Center(child: iconsetter(weather)),
                           Center(
                               child: Text(
                             temperature.toString() + " °C",
@@ -177,4 +171,45 @@ class _MyAppState extends State<MyApp> {
   }
 
   String capitalize(String s) => s[0].toUpperCase() + s.substring(1);
+  BoxedIcon iconsetter(int weatherid) {
+    if (weatherid == 0)
+      return BoxedIcon(
+        WeatherIcons.day_sunny,
+        size: 100,
+        color: colour == 'white' ? Colors.white : Colors.black,
+      );
+    else if (weatherid >= 200 && weatherid < 300)
+      return BoxedIcon(
+        WeatherIcons.thunderstorm,
+        size: 100,
+        color: colour == 'white' ? Colors.white : Colors.black,
+      );
+    else if (weatherid >= 300 && weatherid < 400)
+      return BoxedIcon(
+        WeatherIcons.raindrop,
+        size: 100,
+        color: colour == 'white' ? Colors.white : Colors.black,
+      );
+    else if (weatherid >= 500 && weatherid < 600)
+      return BoxedIcon(
+        WeatherIcons.raindrops,
+        size: 100,
+        color: colour == 'white' ? Colors.white : Colors.black,
+      );
+    else if (weatherid >= 600 && weatherid < 700)
+      return BoxedIcon(
+        WeatherIcons.snow,
+        size: 100,
+        color: colour == 'white' ? Colors.white : Colors.black,
+      );
+    else if (weatherid >= 800 && weatherid < 900)
+      return BoxedIcon(WeatherIcons.cloudy,
+          size: 100, color: colour == 'white' ? Colors.white : Colors.black);
+    else
+      return BoxedIcon(
+        WeatherIcons.day_sunny,
+        size: 100,
+        color: colour == 'white' ? Colors.white : Colors.black,
+      );
+  }
 }
