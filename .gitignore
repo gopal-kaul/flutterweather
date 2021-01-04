@@ -202,6 +202,7 @@ GoogleService-Info.plist
 # Firebase Hosting
 .firebaserc
 .firebase/
+firebase.json
 firebase-debug.log
 
 # Build generated
