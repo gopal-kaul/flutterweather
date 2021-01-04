@@ -51,6 +51,7 @@ class _MyAppState extends State<MyApp> {
         weather = weatherdata;
         iconloc = iconsite + icon.toString() + '@4x.png';
         desc = weatherdesc;
+        errormsg = '';
       });
     } catch (e) {
       setState(() {
