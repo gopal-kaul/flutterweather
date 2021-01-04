@@ -99,7 +99,7 @@ class _MyAppState extends State<MyApp> {
                             Center(
                               child: Text(
                                 capitalize(desc.toString()),
-                                style: tempstyle(40),
+                                style: tempstyle(30),
                               ),
                             )
                         ],
@@ -160,7 +160,7 @@ class _MyAppState extends State<MyApp> {
       return "assets/images/rain.jpg";
     } else if (weatherid >= 600 && weatherid < 700) {
       if (colour != 'black') setcolour('black');
-      return "/assetsimages/snow.jpg";
+      return "assets/images/snow.jpg";
     } else if (weatherid >= 800 && weatherid < 900) {
       if (colour != 'white') setcolour('white');
       return "assets/images/cloudy.jpg";
