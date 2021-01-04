@@ -99,7 +99,7 @@ class _MyAppState extends State<MyApp> {
                             Center(
                               child: Text(
                                 capitalize(desc.toString()),
-                                style: tempstyle(30),
+                                style: tempstyle(25),
                               ),
                             )
                         ],
@@ -107,7 +107,7 @@ class _MyAppState extends State<MyApp> {
                       Column(
                         children: <Widget>[
                           Container(
-                            width: 400.0,
+                            width: 350.0,
                             child: Center(
                               child: TextField(
                                 onSubmitted: (String input) {
